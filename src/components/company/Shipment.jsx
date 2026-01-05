@@ -1,0 +1,121 @@
+"use client";
+
+import { Box, Stack, Typography, Button } from "@mui/material";
+import shipment from "../../../public/company/shipment-bg.jpg";
+export default function ShipmentCTA() {
+  return (
+    <Box
+      sx={{
+        position: "relative",
+        minHeight: { xs: "70vh", md: "80vh" },
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        color: "white",
+        backgroundImage: `url(${shipment.src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dark Overlay */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(0,0,0,0.55)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Content */}
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          maxWidth: "900px",
+          px: 3,
+        }}
+      >
+        <Stack spacing={3} alignItems="center">
+          {/* Tag */}
+          <Typography
+            sx={{
+              color: "#4DE1FF",
+              letterSpacing: "2px",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+            }}
+          >
+            Shipment
+          </Typography>
+
+          {/* Title */}
+          <Typography
+            sx={{
+              fontSize: { xs: "2rem", md: "2.8rem" },
+              fontWeight: "bold",
+              lineHeight: 1.2,
+            }}
+          >
+            Are You A Shipper? Please Knock Us
+            <br />
+            On The Below Button
+          </Typography>
+
+          {/* Description */}
+          <Typography
+            sx={{
+              maxWidth: 700,
+              fontSize: "0.95rem",
+              opacity: 0.85,
+              lineHeight: 1.8,
+            }}
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste
+            facere, unde nesciunt ratione amet voluptatibus aut, iure magnam
+            accusantium consequatur voluptatem nam ipsum in soluta consectetur
+            temporibus nobis itaque!
+          </Typography>
+
+          {/* Buttons */}
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={2} mt={2}>
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#0178fe",
+                px: 4,
+                py: 1.2,
+                textTransform: "none",
+                borderRadius: "6px",
+                "&:hover": {
+                  backgroundColor: "#1558cc",
+                },
+              }}
+            >
+              Make A Shipment
+            </Button>
+
+            <Button
+              variant="outlined"
+              sx={{
+                color: "#4DE1FF",
+                borderColor: "#4DE1FF",
+                px: 4,
+                py: 1.2,
+                textTransform: "none",
+                borderRadius: "6px",
+                "&:hover": {
+                  borderColor: "#4DE1FF",
+                  backgroundColor: "rgba(77,225,255,0.1)",
+                },
+              }}
+            >
+              Contact Us
+            </Button>
+          </Stack>
+        </Stack>
+      </Box>
+    </Box>
+  );
+}
