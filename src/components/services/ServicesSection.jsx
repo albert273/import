@@ -7,31 +7,39 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import SpeedIcon from "@mui/icons-material/Speed";
 import HomeIcon from "@mui/icons-material/Home";
 import InventoryIcon from "@mui/icons-material/Inventory";
+import { Description } from "@mui/icons-material";
 
 const services = [
   {
-    title: "Air Transport",
+    title: "Freight Forwarding",
     icon: <FlightIcon fontSize="large" />,
+    description:"We manage sea, air, and road shipments, ensuring timely delivery and full cargo tracking worldwide."
   },
   {
-    title: "Sea Transport",
+    title: " International Trading",
     icon: <DirectionsBoatIcon fontSize="large" />,
+    description:"We provide import and export solutions, helping businesses source and sell products efficiently."
+
   },
   {
-    title: "Road Transport",
+    title: "Customs Clearance",
     icon: <LocalShippingIcon fontSize="large" />,
+    description:"Our team handles all documentation and compliance, ensuring smooth and fast customs processing."
   },
   {
-    title: "Fast Freight",
+    title: "License Rental",
     icon: <SpeedIcon fontSize="large" />,
+    description:"We offer temporary import and export licenses, enabling businesses to trade legally without permanent registration."
   },
   {
-    title: "Home Delivery",
+    title: "Supply Chain Solutions",
     icon: <HomeIcon fontSize="large" />,
+    description:"From warehousing to distribution, we streamline your logistics for cost-effective and reliable operations."
   },
   {
-    title: "Packaging",
+    title: " Cargo Insurance & Consultation",
     icon: <InventoryIcon fontSize="large" />,
+    description:"We provide insurance and expert guidance on trade and logistics, minimizing risks and optimizing processes."
   },
 ];
 
@@ -59,10 +67,8 @@ export default function ServicesSection() {
           We Are Trusted For Our Services
         </Typography>
         <Typography sx={{ fontSize: "16px", color: "#555555" }}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit porro,
-          aliquid reprehenderit iusto inventore
-          <br /> sint beatae ipsum impedit in sit numquam illum distinctio sequi
-          quisquam et hic tempore
+          Transparent & Trustworthy: We operate with integrity, keeping you
+          informed at every stage of your trade and logistics operations.
         </Typography>
       </Stack>
       <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={4}>
@@ -111,8 +117,7 @@ export default function ServicesSection() {
 
             {/* Description */}
             <Typography variant="body2" color="text.secondary" mb={3}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-              nostrum minima eligendi neque labore asperiores.
+              {service.description}
             </Typography>
 
             {/* Read More */}

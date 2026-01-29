@@ -42,7 +42,7 @@ export default function AboutSection() {
 
         {/* RIGHT CONTENT */}
         <Stack flex={1} textAlign={{ xs: "center", md: "left" }} gap={3}>
-          <Stack >
+          <Stack>
             <Typography
               fontSize={{ xs: "2rem", md: "2.6rem" }}
               fontWeight="800"
@@ -56,13 +56,15 @@ export default function AboutSection() {
               color="#0077B6"
               sx={{ ml: "40px" }}
             >
-              TradeLinkGlobal
+              Uni Cargo
             </Typography>
           </Stack>
 
-          <Typography fontSize="1.8rem" fontWeight="750" color="#000" >
-            Insights and Resources to help drive
-            <br/> your Business Forward Faster.
+          <Typography fontSize="1.1rem" fontWeight="750" color="#000">
+            Uni-Cargo is a leading import and export company, providing
+            businesses with reliable trading solutions across various markets.
+            We help clients source, sell, and move goods efficiently while
+            ensuring compliance with all trade regulations.
           </Typography>
 
           <Typography
@@ -71,10 +73,9 @@ export default function AboutSection() {
             lineHeight="1.7"
             maxWidth="520px"
           >
-            We build results-oriented brand strategy and continually refine the
-            campaign for the greatest outcome. From full scale branding
-            strategy, we are reaching to almost desired buyers throughout the
-            world.
+Our sister company, a specialized freight forwarding service, supports seamless transportation and logistics, offering end-to-end solutions for sea, air, and road shipments. Together, we ensure smooth operations from sourcing to delivery.
+<br/>
+Uni-Cargo is committed to reliability, transparency, and helping businesses grow through efficient trade and logistics solutions.
           </Typography>
         </Stack>
       </Stack>

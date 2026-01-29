@@ -1,10 +1,17 @@
 "use client";
-import { Box, Button, Stack, Typography, IconButton, Drawer } from "@mui/material";
+import {
+  Box,
+  Button,
+  Stack,
+  Typography,
+  IconButton,
+  Drawer,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import { useState } from "react";
-import logo from "../../app/favicon.ico"
+import logo from "../../app/favicon.ico";
 import Image from "next/image";
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -13,11 +20,11 @@ export const Navbar = () => {
     <Box>
       <Stack
         sx={{
-          backgroundColor: "#48CAE4",
+          backgroundColor: "#48cae4",
           width: "100%",
           maxWidth: { xs: "100%", md: "90%" },
           marginTop: "20px",
-          borderRadius: {xs: 0,md:"15px"},
+          borderRadius: { xs: 0, md: "15px" },
           position: "fixed",
           left: "50%",
           transform: "translateX(-50%)",
@@ -47,10 +54,10 @@ export const Navbar = () => {
             >
               {[
                 { label: "Home", href: "/" },
-                { label: "Company", href: "/company" },
-                { label: "Services", href: "/services" },
-                { label: "Product", href: "/product" },
-                { label: "page", href: "/" },
+                { label: "Company", href: "/page/company" },
+                { label: "Services", href: "/page//services" },
+                { label: "Product", href: "/page//product" },
+                { label: "Contact us", href: "/page/contactUs" },
               ].map((item) => (
                 <Link key={item.href} href={item.href}>
                   <Typography
@@ -70,7 +77,7 @@ export const Navbar = () => {
 
             {/* Get Quote Button (hidden on small screens) */}
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Link href={"/getQuote"}>
+              <Link href={"/page/getQuote"}>
                 <Button
                   sx={{
                     textTransform: "capitalize",
@@ -101,10 +108,10 @@ export const Navbar = () => {
         <Stack spacing={3} sx={{ width: 250, p: 3 }}>
           {[
             { label: "Home", href: "/" },
-            { label: "Company", href: "/company" },
-            { label: "Services", href: "/services" },
-            { label: "Product", href: "/product" },
-            { label: "page", href: "/" },
+            { label: "Company", href: "/page/company" },
+            { label: "Services", href: "/page/services" },
+            { label: "Product", href: "/page/product" },
+            { label: "Contact us", href: "/page/contactUs" },
           ].map((item) => (
             <Link key={item.href} href={item.href}>
               <Typography
@@ -121,7 +128,7 @@ export const Navbar = () => {
           ))}
 
           {/* Mobile Get Quote */}
-          <Link href={"/getQuote"}>
+          <Link href={"/page/getQuote"}>
             <Button
               fullWidth
               variant="contained"

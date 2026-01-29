@@ -2,6 +2,7 @@
 
 import { Box, Stack, Typography, Button } from "@mui/material";
 import shipment from "../../../public/company/shipment-bg.jpg";
+import Link from "next/link";
 export default function ShipmentCTA() {
   return (
     <Box
@@ -72,47 +73,52 @@ export default function ShipmentCTA() {
               lineHeight: 1.8,
             }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste
-            facere, unde nesciunt ratione amet voluptatibus aut, iure magnam
-            accusantium consequatur voluptatem nam ipsum in soluta consectetur
-            temporibus nobis itaque!
+            Uni Cargo is an import and export company that offers comprehensive
+            supply chain solutions, ensuring seamless execution of all import
+            and export operations on behalf of clients. Our services include
+            full logistics support and customs clearance at all ports, backed by
+            an international network of agents to facilitate door-to-door
+            delivery and receipt of goods.
           </Typography>
 
           {/* Buttons */}
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2} mt={2}>
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#0178fe",
-                px: 4,
-                py: 1.2,
-                textTransform: "none",
-                borderRadius: "6px",
-                "&:hover": {
-                  backgroundColor: "#1558cc",
-                },
-              }}
-            >
-              Make A Shipment
-            </Button>
-
-            <Button
-              variant="outlined"
-              sx={{
-                color: "#4DE1FF",
-                borderColor: "#4DE1FF",
-                px: 4,
-                py: 1.2,
-                textTransform: "none",
-                borderRadius: "6px",
-                "&:hover": {
+            <Link href={"/page/getQuote"}>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#0178fe",
+                  px: 4,
+                  py: 1.2,
+                  textTransform: "none",
+                  borderRadius: "6px",
+                  "&:hover": {
+                    backgroundColor: "#1558cc",
+                  },
+                }}
+              >
+                Make A Shipment
+              </Button>
+            </Link>
+            <Link href={"/page/contactUs"}>
+              <Button
+                variant="outlined"
+                sx={{
+                  color: "#4DE1FF",
                   borderColor: "#4DE1FF",
-                  backgroundColor: "rgba(77,225,255,0.1)",
-                },
-              }}
-            >
-              Contact Us
-            </Button>
+                  px: 4,
+                  py: 1.2,
+                  textTransform: "none",
+                  borderRadius: "6px",
+                  "&:hover": {
+                    borderColor: "#4DE1FF",
+                    backgroundColor: "rgba(77,225,255,0.1)",
+                  },
+                }}
+              >
+                Contact Us
+              </Button>
+            </Link>
           </Stack>
         </Stack>
       </Box>

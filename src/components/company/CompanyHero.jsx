@@ -52,8 +52,7 @@ export default function CompanyHero() {
               lineHeight: "1.7",
             }}
           >
-            Learn more about who we are and what makes
-            <br /> us a trusted partner in global trade.
+            At Uni Cargo, we are committed to providing reliable, efficient, <br/>and transparent trade services tailored to meet the needs of businesses operating in today’s global market
           </Typography>
         </Stack>
 

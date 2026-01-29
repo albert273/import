@@ -2,24 +2,25 @@
 
 import { Box, Typography, Grid, Card, CardContent, Button } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
-    title: "Steel Products",
+    title: "Trading & License Rental",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, dicta necessitatibus",
+      " We provide international trading solutions and rent temporary import/export licenses, allowing businesses to operate legally and efficiently without long-term commitments.",
     image: "/home/services/Rectangle(1).png",
   },
   {
-    title: "Plastic Products",
+    title: "Freight & Logistics",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, dicta necessitatibus",
+      "We manage sea, air, and road transportation with reliable tracking and timely delivery, ensuring your cargo reaches its destination safely and efficiently.",
     image: "/home/services/Rectangle(2).png",
   },
   {
-    title: "Cement Products",
+    title: "Customs & Supply Chain",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, dicta necessitatibus",
+      "Our team handles customs clearance, documentation, and supply chain management, offering seamless and compliant operations for all shipments.",
     image: "/home/services/Rectangle(3).png",
   },
 ];
@@ -49,21 +50,23 @@ export default function ServicesSection() {
       <Grid container spacing={6} justifyContent="center">
         {services.map((service, index) => (
           <Grid item xs={12} md={4} key={index}>
-            <Card
-              sx={{
-                
-                borderRadius: "14px",
-                overflow: "hidden",
-                backgroundColor: "#E0F7FF",
-                boxShadow: "5px 15px 55px rgba(255, 255, 255, 0.3)",
-                transition: "transform 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-10px)",
-                },
-                width: 320,
-                height: 400
-              }}
-            >
+<Card
+  sx={{
+    borderRadius: "14px",
+    overflow: "hidden",
+    backgroundColor: "#E0F7FF",
+    boxShadow: "5px 15px 55px rgba(255, 255, 255, 0.3)",
+    transition: "transform 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-10px)",
+    },
+    width: 320,
+    height: 470,
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+
               {/* IMAGE */}
               <Box sx={{ position: "relative", height: 200 }}>
                 <Image
@@ -75,7 +78,15 @@ export default function ServicesSection() {
               </Box>
 
               {/* CONTENT */}
-              <CardContent sx={{ textAlign: "center", p: 3 }}>
+<CardContent
+  sx={{
+    textAlign: "center",
+    p: 3,
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+  }}
+>
                 <Typography
                   fontWeight="bold"
                   fontSize="1.5rem"
@@ -89,23 +100,25 @@ export default function ServicesSection() {
                   fontSize="0.84rem"
                   color="#555"
                   mb={3}
+                  sx={{height: "80px"}}
                 >
                   {service.description}
                 </Typography>
 
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#03045E",
-                    borderRadius: "8px",
-                    px: 3,
-                    "&:hover": {
-                      backgroundColor: "#023E8A",
-                    },
-                  }}
-                >
-                  Read more
-                </Button>
+<Button
+  variant="contained"
+  sx={{
+        mt: "auto",
+    backgroundColor: "#03045E",
+    borderRadius: "8px",
+    px: 3,
+    "&:hover": {
+      backgroundColor: "#023E8A",
+    },
+  }}
+>
+  Read more
+</Button>
               </CardContent>
             </Card>
           </Grid>

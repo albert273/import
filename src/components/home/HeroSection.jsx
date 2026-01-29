@@ -1,6 +1,7 @@
 "use client";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -37,33 +38,26 @@ export default function HeroSection() {
               color: "#023E8A",
             }}
           >
-            TradeLinkGlobal
+            Uni Cargo
           </Typography>
 
-          <Typography
-            sx={{
-              fontSize: { xs: "1rem", sm: "1.1rem", md: "1.3rem" },
-              fontWeight: "600",
-              color: "#0077B6",
-              mt: 1,
-            }}
-          >
-            Connecting Worlds, Exporting <br /> Opportunities!!
-          </Typography>
 
           <Typography
             sx={{
               fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.15rem" },
               mt: 3,
-              color: "#0096C7",
+              color: "#0285b0ff",
               lineHeight: "1.7",
             }}
           >
-            Boost global business with our <br />
-            highly recommended trading <br />
-            company.
+            Uni-Cargo is a professional trading and logistics company providing
+            reliable, efficient, and cost-effective solutions for international
+            and domestic markets. We support businesses by managing sourcing,
+            trading, transportation, and supply chain operations with complete
+            transparency and control
           </Typography>
 
+            <Link href={"/page/company"}>
           <Button
             variant="contained"
             sx={{
@@ -80,6 +74,7 @@ export default function HeroSection() {
           >
             Learn More
           </Button>
+          </Link>
         </Stack>
       </Stack>
 
@@ -92,7 +87,7 @@ export default function HeroSection() {
           width: { xs: "90%", sm: "70%", md: "55%", lg: "50%" },
           display: "flex",
           justifyContent: "flex-end",
-          display: {xs: "none", md: "block"}
+          display: { xs: "none", md: "block" },
         }}
       >
         <Image

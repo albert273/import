@@ -54,20 +54,29 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      let res = await axios.post("http://localhost:8000/api/auth/login", data);
-      if ((res.status === 201) | 200) {
-        window.location.pathname = "/";
+      const res = await axios.post(
+        "https://back-uni-cargo-jwdf.vercel.app/api/auth/login",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        },
+      );
+
+      if (res.status === 200 || res.status === 201) {
         cookies.set("name", res.data.data.name);
+        cookies.set("role", res.data.data.accountType);
         cookies.set("id", res.data.data.id);
-        cookies.set("token", res.data.token);
-        res.data.data.accountType === "headOffice"
-          ? cookies.set("role", "Head Officer")
-          : cookies.set("role", res.data.data.accountType);
+        cookies.set("token", res.data.token || res.data.data?.token);
+
+        window.location.pathname = "/";
       }
     } catch (err) {
-      console.log("Error:", err);
-      handleClick();
+      console.error("Login error:", err.response?.data || err.message);
       setError(true);
+      setOpen(true);
     }
   };
 
@@ -149,7 +158,7 @@ const Login = () => {
           >
             logout
           </Button>
-          <Link href={'/'}>
+          <Link href={"/"}>
             <Button
               variant="contained"
               sx={{
@@ -192,8 +201,7 @@ const Login = () => {
           justifyContent: "center",
           alignItems: "center",
           pt: "80px",
-                    pb: "80px"
-
+          pb: "80px",
         }}
       >
         <Container
@@ -306,7 +314,7 @@ const Login = () => {
                   color: "#fff",
                   backgroundColor: "black",
                 },
-                textTransform: "capitalize"
+                textTransform: "capitalize",
               }}
             >
               Login

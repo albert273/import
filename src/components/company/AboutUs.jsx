@@ -5,12 +5,6 @@ import cargo from "../../../public/company/cargo1.webp";
 import CheckIcon from "@mui/icons-material/Check";
 
 export default function AboutUs() {
-  const info = [
-    { id: "1", text: "24/7 Business Support" },
-    { id: "2", text: "Secure Transportation" },
-    { id: "3", text: "World Wide Most Effective Business" },
-    { id: "4", text: "Easy And Quick Problem Analysis" },
-  ];
 
   return (
     <Stack
@@ -85,40 +79,31 @@ export default function AboutUs() {
             lineHeight: 1.6,
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident
-          possimus quae adipisci quisquam distinctio nemo, tempora corrupti
-          expedita nihil. Reiciendis impedit voluptates temporibus aut
-          consectetur, vitae culpa et.
+          Uni-Cargo is a trusted import and export company, providing reliable
+          trading solutions to businesses locally and internationally. We
+          specialize in sourcing, trading, and delivering goods efficiently
+          while ensuring full compliance with all regulatory requirements.
         </Typography>
 
-        {info.map((item) => (
-          <Stack
-            key={item.id}
-            direction="row"
-            alignItems="center"
-            gap={2}
-            sx={{ mb: 2 }}
+        <Stack
+          gap={2}
+          sx={{ mb: 2 }}
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: "1.2rem", sm: "1.8rem", md: "2rem" },
+              mb: .5,
+              fontWeight: "bold",
+              color: "#023E8A",
+            }}
           >
-            <CheckIcon
-              sx={{
-                p: "4px",
-                borderRadius: "50%",
-                fontSize: "22px",
-                backgroundColor: "#48cae4",
-                color: "white",
-              }}
-            />
-            <Typography
-              sx={{
-                fontSize: { xs: "1rem", sm: "1.15rem", md: "1.2rem" },
-                fontWeight: "600",
-                color: "#023E8A",
-              }}
-            >
-              {item.text}
-            </Typography>
-          </Stack>
-        ))}
+            Our Sister Company
+          </Typography>
+          Our sister company is a dedicated freight forwarding service, handling
+          sea, air, and road shipments. Together, we provide seamless logistics
+          and end-to-end solutions, from sourcing to delivery, ensuring your
+          cargo moves safely, on time, and cost-effectively.
+        </Stack>
       </Box>
     </Stack>
   );

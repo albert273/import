@@ -21,17 +21,17 @@ const pages = [
   {
     id: 2,
     title: "About",
-    link: "/company",
+    link: "/page/company",
   },
     {
     id: 3,
     title: "Services",
-    link: "/services",
+    link: "/page/services",
   },
     {
     id: 4,
     title: "Product",
-    link: "/product",
+    link: "/page/product",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function Footer() {
           <Image src={logo} alt="logo" width={100} height={100}/>
 
           <Stack direction="row" spacing={2} alignItems="center">
-            <Link href={"/login"}>
+            <Link href={"/page/login"}>
               <Button
                 variant="contained"
                 sx={{

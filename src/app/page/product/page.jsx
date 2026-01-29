@@ -5,9 +5,9 @@ import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 // images (replace with your real assets)
-import packagingImg from "../../../public/product/product1.png";
-import consumerImg from "../../../public/product/product2.png";
-import medicalImg from "../../../public/product/product3.png";
+import packagingImg from "../../../../public/product/product1.png";
+import consumerImg from "../../../../public/product/product2.png";
+import medicalImg from "../../../../public/product/product3.png";
 
 export default function IndustriesSection() {
   return (

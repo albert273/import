@@ -1,4 +1,3 @@
-
 import { Box } from "@mui/material";
 import HeroSection from "../components/home/HeroSection";
 import ServicesSection from "@/components/home/Services";
@@ -8,17 +7,20 @@ import OurWorkSection from "@/components/home/OurWork";
 import Team from "@/components/home/Team";
 import OurClients from "@/components/home/OurClients";
 import Footer from "@/components/footer/Footer";
+import  {Navbar}  from "@/components/navbar/Navbar";
 
 export default function Home() {
   return (
-    <Box >
-      <HeroSection/>
-      <ServicesSection/>
+    <Box>
+      <Navbar />
+      <HeroSection />
+      <ServicesSection />
       <AboutSection />
       <StatsSection />
-      <OurWorkSection/>
+      <OurWorkSection />
       <Team />
       <OurClients />
+      <Footer />
     </Box>
   );
 }

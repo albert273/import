@@ -51,8 +51,7 @@ export default function HeroServices() {
               lineHeight: "1.7",
             }}
           >
-            Learn more about who we are and what makes
-            <br /> us a trusted partner in global trade.
+            Customer-Focused: We prioritize your business needs, providing personalized support and practical solutions for every shipment.
           </Typography>
         </Stack>
 

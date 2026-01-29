@@ -49,10 +49,11 @@ export default function WhyChooseUs() {
             mx: { xs: "auto", md: "0" },
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ratione
-          eveniet eum. Quam enim inventore, exercitationem error ad temporibus
-          sit facere quaerat architecto impedit ullam quasi vitae distinctio eos
-          labore?
+Comprehensive Solutions: From import/export trading to freight forwarding, we handle every step of your supply chain efficiently.
+<br/>
+Reliable Partner Network: Our sister freight-forwarding company ensures safe, timely, and cost-effective transportation worldwide.
+<br/>
+Expertise & Experience: Years of experience in trading and logistics allow us to navigate regulations, documentation, and market challenges with ease.
         </Typography>
       </Box>
 
