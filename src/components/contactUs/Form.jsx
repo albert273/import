@@ -98,9 +98,10 @@ function Form({ onFormSubmit }) {
   const onSubmit = async (data) => {
     try {
       let res = await axios.post(
-        "https://back-uni-cargo-jwdf.vercel.app/api/message",
+        "http://unicargoapis.somee.com/api/Message/SendMessage",
         data,
       );
+      console.log(res)
       if ((res.status === 201) | 200) {
         onFormSubmit("Message sent successfully!", "success");
         reset();
@@ -314,7 +315,7 @@ function Form({ onFormSubmit }) {
               style={{
                 borderColor: errors.message ? "red" : "#ccc",
               }}
-              {...register("message", {
+              {...register("messageContent", {
                 required: "You must write your message",
                 validate: {
                   minLength: (value) =>

@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { makeStore } from "@/redux/Store";
 
 const dashLayout = ({ children }) => {
-  const [role, setRole] = useState();
+  const [token, setToken] = useState();
 
   const storeRef = useRef();
   if (!storeRef.current) {
@@ -17,12 +17,11 @@ const dashLayout = ({ children }) => {
 
   useEffect(() => {
     const cookies = cookie();
-    setRole(cookies.get("role"));
+    setToken(cookies.get("token"));
   }, []);
 
-  const isAdminOrHeadOffice = role === "admin" || role === "headOffice";
 
-  if (!isAdminOrHeadOffice) {
+  if (!token) {
     return (
       <Box
         sx={{

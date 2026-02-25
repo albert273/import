@@ -26,7 +26,7 @@ export default function QuoteDetailsDialog({ open, onClose, quote }) {
     : null;
 
   const handleFinishQuote = () => {
-    dispatch(finishQuote(quote._id));
+    dispatch(finishQuote(quote.id));
     onClose();
   };
 
@@ -110,21 +110,21 @@ export default function QuoteDetailsDialog({ open, onClose, quote }) {
                   }
                 />
 
-                {!finishedStatus && (
-                  <Button
-                    onClick={handleFinishQuote}
-                    variant="contained"
-                    size="small"
-                    sx={{
-                      backgroundColor: "#03045E",
-                      textTransform: "capitalize",
-                      fontWeight: "bold",
-                      "&:hover": { backgroundColor: "#00229dff" },
-                    }}
-                  >
-                    Finish Quote
-                  </Button>
-                )}
+     {!quote.isActive && (
+      <Button
+        onClick={handleFinishQuote}
+        variant="contained"
+        size="small"
+        sx={{
+          backgroundColor: "#03045E",
+          textTransform: "capitalize",
+          fontWeight: "bold",
+          "&:hover": { backgroundColor: "#00229dff" },
+        }}
+      >
+        Done
+      </Button>
+    )}
               </Stack>
             </ListItem>
 

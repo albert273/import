@@ -100,20 +100,6 @@ export default function CreateClient() {
   const handleMouseUpPassword = (event) => {
     event.preventDefault();
   };
-
-  const handleClickShowConfirmPassword = () =>
-    setShowConfirmPassword((show) => !show);
-
-  const handleMouseDownConfirmPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handleMouseUpConfirmPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const password = watch("password");
-
   useEffect(() => {
     setLoaded(true);
   }, []);
@@ -132,30 +118,7 @@ export default function CreateClient() {
       </Box>
     );
 
-  if (role !== "admin") {
-    return (
-      <Box sx={{ height: "100vh" }}>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-            flexDirection: "column",
-          }}
-        >
-          <ReportGmailerrorredIcon
-            sx={{ color: "#03045E", fontSize: "14rem" }}
-          />
-          <Typography
-            sx={{ color: "#03045E", fontWeight: "bold", fontSize: "1.6rem" }}
-          >
-            Sorry you can't access on this page
-          </Typography>
-        </Box>
-      </Box>
-    );
-  }
+
 
   return (
     <>
@@ -201,30 +164,6 @@ export default function CreateClient() {
             })}
             sx={{ flex: 1 }}
           />
-          <TextField
-            type="text"
-            id="username"
-            label="UserName"
-            error={Boolean(errors.username)}
-            helperText={errors.username ? errors.username.message : null}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AccountCircleIcon sx={{ color: "#03045E" }} />
-                </InputAdornment>
-              ),
-            }}
-            {...register("username", {
-              required: "username is required",
-              validate: {
-                minLength: (value) =>
-                  value.length >= 3 || "Name must be at least 3 characters",
-                isNotNumber: (value) =>
-                  isNaN(value) ? true : "You must write your real name",
-              },
-            })}
-            sx={{ flex: 1 }}
-          />
         </Stack>
 
         <TextField
@@ -245,6 +184,26 @@ export default function CreateClient() {
           {...register("email", {
             pattern: regEmail,
             required: true,
+          })}
+        />
+
+                <TextField
+          id="number"
+          label="Number"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <PhoneIcon sx={{ color: "#03045E" }} />
+              </InputAdornment>
+            ),
+          }}
+          error={Boolean(errors.phoneNumber)}
+          helperText={
+            errors.phoneNumber ? "please enter whatsApp Number" : null
+          }
+          {...register("phoneNumber", {
+            required: true,
+            pattern: phoneRegExp,
           })}
         />
 
@@ -282,62 +241,6 @@ export default function CreateClient() {
             minLength: (value) =>
               value.length >= 6 ||
               "password must be at least 6 characters long",
-          })}
-        />
-        <TextField
-          sx={{ flex: 1 }}
-          type={showConfirmPassword ? "text" : "password"}
-          id="passwordConfirm"
-          label="Confirm Password"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <LockIcon sx={{ color: "#03045E" }} />
-              </InputAdornment>
-            ),
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label={
-                    showConfirmPassword
-                      ? "hide the password"
-                      : "display the password"
-                  }
-                  onClick={handleClickShowConfirmPassword}
-                  onMouseDown={handleMouseDownConfirmPassword}
-                  onMouseUp={handleMouseUpConfirmPassword}
-                  edge="end"
-                >
-                  {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          error={Boolean(errors.passwordConfirm)}
-          helperText={errors.passwordConfirm?.message}
-          {...register("passwordConfirm", {
-            required: "Please confirm your password",
-            validate: (value) => value === password || "Passwords do not match",
-          })}
-        />
-
-        <TextField
-          id="number"
-          label="Number"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <PhoneIcon sx={{ color: "#03045E" }} />
-              </InputAdornment>
-            ),
-          }}
-          error={Boolean(errors.phoneNumber)}
-          helperText={
-            errors.phoneNumber ? "please enter whatsApp Number" : null
-          }
-          {...register("phoneNumber", {
-            required: true,
-            pattern: phoneRegExp,
           })}
         />
 

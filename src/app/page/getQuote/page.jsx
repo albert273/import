@@ -48,7 +48,7 @@ const page = () => {
     try {
       let res;
       res = await axios.post(
-        "https://back-uni-cargo-jwdf.vercel.app/api/quote/guest",
+        "http://unicargoapis.somee.com/api/Quote/RequestQuote",
         data,
       );
       if (res.status === 201 || res.status === 200) {
@@ -168,7 +168,7 @@ const page = () => {
             helperText={
               errors.phoneNumber ? "please enter whatsApp Number" : null
             }
-            {...register("phoneNumber", {
+            {...register("number", {
               required: true,
               pattern: phoneRegExp,
             })}
@@ -177,7 +177,7 @@ const page = () => {
 
           <TextField
             label="Cargo Type *"
-            {...register("tripType", { required: true })}
+            {...register("type", { required: true })}
             error={Boolean(errors.cargoType)}
             sx={{ flex: 1 }}
           />
@@ -215,7 +215,7 @@ const page = () => {
           label="Additional Details"
           multiline
           rows={5}
-          {...register("additionalDetails")}
+          {...register("details")}
         />
 
         {/* Button */}

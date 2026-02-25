@@ -2,13 +2,12 @@
 import TitleDash from "@/components/dashboard/titlePages/TitleDash";
 import RequestsCard from "@/components/dashboard/quoteCard/RequestsCard";
 import { fetchGuestQuoteData } from "@/redux/slice/quotes";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CircularProgress } from "@mui/material";
 import QuoteDetailsDialog from "@/components/dashboard/quoteDetails/QuoteDetailsDialog";
 
-const page = () => {
+const Page = () => {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   const guestQuotes = useSelector((state) => state.Quotes.Quote);
@@ -20,10 +19,9 @@ const page = () => {
     setOpenDetails(true);
   };
 
-
   useEffect(() => {
     dispatch(fetchGuestQuoteData());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setLoaded(true);
@@ -43,23 +41,20 @@ const page = () => {
       </Box>
     );
 
-  // Filter running and expiring quotes
-  const runningQuotes = Array.isArray(guestQuotes)
-    ? guestQuotes.filter(
-        (quote) => !quote.status.some((status) => status.isFinished),
-      )
+  // ✅ تقسيم البيانات حسب isActive
+  const inactiveQuotes = Array.isArray(guestQuotes)
+    ? guestQuotes.filter((quote) => quote.isActive === true)
     : [];
 
-  const expiringQuotes = Array.isArray(guestQuotes)
-    ? guestQuotes.filter((quote) =>
-        quote.status.some((status) => status.isFinished),
-      )
+  const runningQuotes = Array.isArray(guestQuotes)
+    ? guestQuotes.filter((quote) => quote.isActive === false)
     : [];
+
   return (
     <Box>
       <TitleDash title={"Guest Quotes"} subTitle={"Guest Quotes only"} />
 
-      {/* Running Quotes */}
+      {/* Active Quotes */}
       <Typography
         sx={{
           fontWeight: "bold",
@@ -70,6 +65,7 @@ const page = () => {
       >
         Quotes in Progress
       </Typography>
+
       <Box
         sx={{
           display: "grid",
@@ -84,19 +80,22 @@ const page = () => {
           pb: "40px",
         }}
       >
-{runningQuotes.map((item) => (
-  <RequestsCard
-    key={item.id}
-    {...item}
-    createdAt={new Date(item.createdAt).toLocaleDateString()}
-    finishedAt={"N/A"}
-    onShowDetails={() => handleShowDetails(item)}
-  />
-))}
-
+        {runningQuotes.map((item) => (
+          <RequestsCard
+            key={item.id}
+            {...item}
+            createdAt={
+              item.createdAt
+                ? new Date(item.createdAt).toLocaleDateString()
+                : "N/A"
+            }
+            finishedAt={"N/A"}
+            onShowDetails={() => handleShowDetails(item)}
+          />
+        ))}
       </Box>
 
-      {/* Expiring Quotes */}
+      {/* Inactive Quotes */}
       <Typography
         sx={{
           fontWeight: "bold",
@@ -105,8 +104,9 @@ const page = () => {
           mb: "30px",
         }}
       >
-        Finished Quotes
+        Inactive Quotes
       </Typography>
+
       <Box
         sx={{
           display: "grid",
@@ -121,32 +121,28 @@ const page = () => {
           pb: "40px",
         }}
       >
-{expiringQuotes.map((item) => {
-  const finishedAt = item.status.find(
-    (status) => status.isFinished,
-  )?.finishedAt;
-
-  return (
-    <RequestsCard
-      key={item.id}
-      {...item}
-      createdAt={new Date(item.createdAt).toLocaleDateString()}
-      finishedAt={
-        finishedAt ? new Date(finishedAt).toLocaleDateString() : "N/A"
-      }
-      onShowDetails={() => handleShowDetails(item)}
-    />
-  );
-})}
-
+        {inactiveQuotes.map((item) => (
+          <RequestsCard
+            key={item.id}
+            {...item}
+            createdAt={
+              item.createdAt
+                ? new Date(item.createdAt).toLocaleDateString()
+                : "N/A"
+            }
+            finishedAt={"N/A"}
+            onShowDetails={() => handleShowDetails(item)}
+          />
+        ))}
       </Box>
+
       <QuoteDetailsDialog
-  open={openDetails}
-  onClose={() => setOpenDetails(false)}
-  quote={selectedQuote}
-/>
+        open={openDetails}
+        onClose={() => setOpenDetails(false)}
+        quote={selectedQuote}
+      />
     </Box>
   );
 };
 
-export default page;
+export default Page;

@@ -10,14 +10,15 @@ export const fetchMessageData = createAsyncThunk(
     const token = cookies.get("token");
     try {
       const response = await axios.get(
-        "https://back-uni-cargo-jwdf.vercel.app/api/message",
+        "http://unicargoapis.somee.com/api/Message/GetAllMessages",
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         },
       );
-      return response.data.data;
+      console.log(response.data)
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.response);
     }

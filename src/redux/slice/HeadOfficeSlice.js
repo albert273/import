@@ -71,13 +71,12 @@ export const fetchHeadOfficeById = createAsyncThunk(
 export const createHeadOfficer = createAsyncThunk(
   "HeadOfficeDataSlice/createHeadOfficer",
   async (data, { rejectWithValue }) => {
-    data.accountType = "headOffice";
     const cookies = cookie();
     const token = cookies.get("token");
 
     try {
       const response = await axios.post(
-        `https://back-uni-cargo-jwdf.vercel.app/api/user/addAccount`,
+        `http://unicargoapis.somee.com/api/User/AddUser`,
         data, // Include the data here
         {
           headers: {

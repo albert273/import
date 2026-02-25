@@ -19,14 +19,14 @@ const rotateAnimation = keyframes`
 
 
 export default function DashIcon(){
-  const [role, setRole] = useState();
+  const [token, setToken] = useState();
 
   useEffect(() => {
     const cookies = cookie();
-    setRole(cookies.get("role"));
+    setToken(cookies.get("token"));
   }, []);
 
-  if(role !== 'admin' && role !== 'headOffice') return null;
+  if(!token) return null;
   return (
     <Link href={'/dashboard'}>
       <Box

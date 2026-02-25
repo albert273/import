@@ -36,7 +36,7 @@ const Login = () => {
 
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
-  const [role, setRole] = useState();
+  const [token, setToken] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   const handleClose = (event, reason) => {
@@ -54,32 +54,21 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post(
-        "https://back-uni-cargo-jwdf.vercel.app/api/auth/login",
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        },
+      let res = await axios.post(
+        "http://unicargoapis.somee.com/api/User/Login",
+        data
       );
-
-      if (res.status === 200 || res.status === 201) {
-        cookies.set("name", res.data.data.name);
-        cookies.set("role", res.data.data.accountType);
-        cookies.set("id", res.data.data.id);
-        cookies.set("token", res.data.token || res.data.data?.token);
-
-        window.location.pathname = "/";
+      console.log(res.data.token)
+      if (res.status === 201 | 200) {
+        window.location.pathname = "/"
+        cookies.set("token", res.data.token)
       }
     } catch (err) {
-      console.error("Login error:", err.response?.data || err.message);
-      setError(true);
-      setOpen(true);
+      console.log("Error:", err);
+      handleClick();
+      setError(true)
     }
   };
-
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -94,7 +83,7 @@ const Login = () => {
 
   useEffect(() => {
     const cookies = cookie();
-    setRole(cookies.get("role"));
+    setToken(cookies.get("token"));
     setIsLoading(false);
   }, []);
 
@@ -113,7 +102,7 @@ const Login = () => {
     );
   }
 
-  if (role) {
+  if (token) {
     return (
       <Stack
         sx={{ height: "100vh", marginX: "auto", marginY: "auto" }}

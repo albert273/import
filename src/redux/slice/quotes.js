@@ -10,14 +10,14 @@ export const fetchGuestQuoteData = createAsyncThunk(
     const token = cookies.get("token");
     try {
       const response = await axios.get(
-        "https://back-uni-cargo-jwdf.vercel.app/api/quote",
+        "http://unicargoapis.somee.com/api/Quote/GetAllQuotes",
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         },
       );
-      return response.data.data;
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.response);
     }
@@ -31,7 +31,7 @@ export const deleteQuote = createAsyncThunk(
     const token = cookies.get("token");
     try {
       const response = await axios.delete(
-        `https://back-uni-cargo-jwdf.vercel.app/api/quote/${id}`,
+        `http://unicargoapis.somee.com/api/Quote/Activate/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -75,7 +75,7 @@ export const finishQuote = createAsyncThunk(
     const token = cookies.get("token");
     try {
       const response = await axios.patch(
-        `https://back-uni-cargo-jwdf.vercel.app/api/quote/finished/${id}`,
+        `http://unicargoapis.somee.com/api/Quote/Activate/${id}`,
         {}, // Payload goes here if needed
         {
           headers: {
