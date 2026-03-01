@@ -10,7 +10,7 @@ export const fetchGuestQuoteData = createAsyncThunk(
     const token = cookies.get("token");
     try {
       const response = await axios.get(
-        "http://unicargoapis.somee.com/api/Quote/GetAllQuotes",
+        "https://unicargoapis.somee.com/api/Quote/GetAllQuotes",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -31,7 +31,7 @@ export const deleteQuote = createAsyncThunk(
     const token = cookies.get("token");
     try {
       const response = await axios.delete(
-        `http://unicargoapis.somee.com/api/Quote/Activate/${id}`,
+        `https://unicargoapis.somee.com/api/Quote/Activate/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -75,7 +75,7 @@ export const finishQuote = createAsyncThunk(
     const token = cookies.get("token");
     try {
       const response = await axios.patch(
-        `http://unicargoapis.somee.com/api/Quote/Activate/${id}`,
+        `https://unicargoapis.somee.com/api/Quote/Activate/${id}`,
         {}, // Payload goes here if needed
         {
           headers: {

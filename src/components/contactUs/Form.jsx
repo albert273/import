@@ -98,10 +98,10 @@ function Form({ onFormSubmit }) {
   const onSubmit = async (data) => {
     try {
       let res = await axios.post(
-        "http://unicargoapis.somee.com/api/Message/SendMessage",
+        "https://unicargoapis.somee.com/api/Message/SendMessage",
         data,
       );
-      console.log(res)
+      console.log(res);
       if ((res.status === 201) | 200) {
         onFormSubmit("Message sent successfully!", "success");
         reset();

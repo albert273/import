@@ -55,18 +55,18 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       let res = await axios.post(
-        "http://unicargoapis.somee.com/api/User/Login",
-        data
+        "https://unicargoapis.somee.com/api/User/Login",
+        data,
       );
-      console.log(res.data.token)
-      if (res.status === 201 | 200) {
-        window.location.pathname = "/"
-        cookies.set("token", res.data.token)
+      console.log(res.data.token);
+      if ((res.status === 201) | 200) {
+        window.location.pathname = "/";
+        cookies.set("token", res.data.token);
       }
     } catch (err) {
       console.log("Error:", err);
       handleClick();
-      setError(true)
+      setError(true);
     }
   };
   const [showPassword, setShowPassword] = useState(false);

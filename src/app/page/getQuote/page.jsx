@@ -48,7 +48,7 @@ const page = () => {
     try {
       let res;
       res = await axios.post(
-        "http://unicargoapis.somee.com/api/Quote/RequestQuote",
+        "https://unicargoapis.somee.com/api/Quote/RequestQuote",
         data,
       );
       if (res.status === 201 || res.status === 200) {

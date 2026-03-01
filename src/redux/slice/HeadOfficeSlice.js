@@ -76,7 +76,7 @@ export const createHeadOfficer = createAsyncThunk(
 
     try {
       const response = await axios.post(
-        `http://unicargoapis.somee.com/api/User/AddUser`,
+        `https://unicargoapis.somee.com/api/User/AddUser`,
         data, // Include the data here
         {
           headers: {

@@ -10,14 +10,14 @@ export const fetchMessageData = createAsyncThunk(
     const token = cookies.get("token");
     try {
       const response = await axios.get(
-        "http://unicargoapis.somee.com/api/Message/GetAllMessages",
+        "https://unicargoapis.somee.com/api/Message/GetAllMessages",
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         },
       );
-      console.log(response.data)
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response);
